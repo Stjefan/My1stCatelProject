@@ -10,5 +10,7 @@ namespace My1stCatelProject.Models
         public string TextProp { get; set; }
 
         public bool BoolProp { get; set; }
+
+        override
     }
 }
