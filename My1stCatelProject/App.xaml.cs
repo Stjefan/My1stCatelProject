@@ -1,7 +1,10 @@
 ﻿using Catel.IoC;
 using Catel.Logging;
 using Catel.Reflection;
+using Catel.Services;
 using Catel.Windows;
+using My1stCatelProject.ViewModels;
+using My1stCatelProject.Views;
 using System.Windows;
 
 namespace My1stCatelProject
@@ -32,9 +35,11 @@ namespace My1stCatelProject
 
             // TODO: Register custom types in the ServiceLocator
             //Log.Info("Registering custom types");
-            //var serviceLocator = ServiceLocator.Default;
+            var serviceLocator = ServiceLocator.Default;
             //serviceLocator.RegisterType<IMyInterface, IMyClass>();
 
+            var uiVisualizerService = serviceLocator.ResolveType<IUIVisualizerService>();
+            uiVisualizerService.Register<FooWindowViewModel, FooWindow>();
             // To auto-forward styles, check out Orchestra (see https://github.com/wildgums/orchestra)
             // StyleHelper.CreateStyleForwardersForDefaultStyles();
 

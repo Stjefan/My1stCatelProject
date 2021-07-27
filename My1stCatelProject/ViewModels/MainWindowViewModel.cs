@@ -56,10 +56,13 @@ namespace My1stCatelProject.ViewModels
             var fooWindowViewModel = typeFactory.CreateInstanceWithParametersAndAutoCompletion<FooWindowViewModel>(MyFoo);
             if (await _uiVisualizerService.ShowDialogAsync(fooWindowViewModel) ?? false)
             {
-                ;
+                // Comment the line below to reproduce unexpected behaviour
+                await fooWindowViewModel.SaveAndCloseViewModelAsync(); // This works
             } else
             {
-                // ((IEditableObject)fooWindowViewModel).CancelEdit(); // Doesnt work either
+                // Comment the line below to reproduce unexpected behaviour
+                await fooWindowViewModel.CancelAndCloseViewModelAsync(); // This works
+                ((IEditableObject)fooWindowViewModel).CancelEdit(); // Doesnt work either
             }
         }
     }
