@@ -57,11 +57,11 @@ namespace My1stCatelProject.ViewModels
             if (await _uiVisualizerService.ShowDialogAsync(fooWindowViewModel) ?? false)
             {
                 // Comment the line below to reproduce unexpected behaviour
-                await fooWindowViewModel.SaveAndCloseViewModelAsync(); // This works
+                // await fooWindowViewModel.SaveAndCloseViewModelAsync(); // This works
             } else
             {
                 // Comment the line below to reproduce unexpected behaviour
-                await fooWindowViewModel.CancelAndCloseViewModelAsync(); // This works
+                // await fooWindowViewModel.CancelAndCloseViewModelAsync(); // This works
                 ((IEditableObject)fooWindowViewModel).CancelEdit(); // Doesnt work either
             }
         }
